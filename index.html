@@ -2,10 +2,46 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="style.css">
+	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,100,300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="http://s.mlcdn.co/animate.css">
+	<link rel="stylesheet" href="../styles/style.css">
 	<title>Document</title>
 </head>
 <body>
-	
+	<header>
+		<section class="main wrapper">
+			<div class="title">
+				<h1>Accio Ipsum</h1>
+				<p>The most magical placeholder text.</p>
+			</div>
+
+			<form action="" class="loremForm" id="generateLorem">
+				<p>Choose a length for your placeholder text:</p>
+				<div class="inputContainer">
+					<label for="short" class="clickable hvr-wobble-horizontal">Short</label>
+					<input type="radio" name="sizeChoice" id="short" value="10" hidden="" class="clickable">
+					<label for="medium" class="clickable hvr-wobble-horizontal">Medium</label>
+					<input type="radio" name="sizeChoice" id="medium" value="20" hidden="" class="clickable">
+					<label for="long" class="clickable hvr-wobble-horizontal">Long</label>
+					<input type="radio" name="sizeChoice" id="long" value="30" hidden="" class="clickable">	
+				</div>
+
+				<div class="buttonContainer">
+					<input type="submit" value="Accio Ipsum!" id="generateLorem" class="generate hvr-buzz-out">
+				</div>	
+			</form>
+			<div class="textOutput" id="bar">
+				
+			</div>
+			<div class="buttonContainer">
+				<button class="copyButton hvr-pulse-grow" data-clipboard-action="copy" data-clipboard-target="#bar">Copy</button>
+			</div>
+		</section>
+	</header>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<!-- <script src="js/potter.json"></script> -->
+	<!-- <script src="js/clipboard.min.js"></script> -->
+	<script src="js/main.js"></script>
 </body>
 </html>

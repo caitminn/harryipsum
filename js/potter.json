@@ -1,0 +1,5 @@
+var potterWords = [
+	"Harry Potter",
+	"Ron Weasley",
+	"Hermione Granger"
+];

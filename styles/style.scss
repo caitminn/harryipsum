@@ -1,0 +1,127 @@
+@import 'setup';
+@import 'variables';
+@import 'fonts';
+@import 'hover';
+
+
+
+// DEFAULT STYLING //
+
+img {
+	max-width: 100%;
+}
+
+body {
+	color: #fff;
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 300;
+	font-size: 1.4rem;
+}
+
+.wrapper {
+	max-width: 1200px;
+	width: 80%;
+	margin: 0 auto;
+}
+
+// MAIN SECTION //
+header {
+	height: 100vh;
+	// background: rgb(174,0,1); /* Old browsers */
+	background: radial-gradient(ellipse at center, rgba(174,0,1,1) 0%,rgba(116,0,1,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.main {
+	height: 100vh;
+	background: url("../img/harrypotter.png") top center no-repeat;
+	.title {
+	    height: 40vh;
+	    padding: 80px;
+		display: flex;
+	    flex-direction: column;
+	    justify-content: space-between;
+		h1 {
+			font-family: lumos;
+			font-size: 4rem;
+		    text-align: center;
+	        text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.5);
+		}
+		p {
+			text-align: center;
+		}
+	}
+
+	.loremForm {
+		height: 25vh;
+		margin: 0 15%;
+		display: flex;
+	    flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.inputContainer {
+		display: flex;
+	    justify-content: center;
+		.clickable {
+		    width: 100px;
+	        height: 43px;
+		    margin: 10px;
+			padding: 10px;
+			/* Old browsers */
+			background: rgb(238,186,48); 
+			/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			background: radial-gradient(ellipse at center, rgba(238,186,48,1) 0%,rgba(211,166,37,1) 100%); 
+			border-radius: 5px;
+		    box-shadow: 1px 1px 1px rgba(51, 51, 51, 0.5);
+		    font-family: lumos;
+		    font-size: 1.2rem;
+			text-shadow: 1px 1px 1px rgba(136, 136, 136, 0.5);
+		    text-align: center;
+			&:hover {
+				cursor: pointer;
+			}	
+			&:focus {
+				border: 5px solid black;
+			}
+		}
+		// .selected {
+		// 	border: 3px solid black;
+		// }	
+	}
+
+	.buttonContainer {
+		display: flex;
+	    justify-content: center;
+	}
+
+    .generate, .copyButton {
+	    height: 43px;
+    	margin: 10px;
+    	padding: 10px;
+    	border: none;
+    	background: white;
+    	border-radius: 10px;
+    	box-shadow: 1px 1px 1px rgba(51, 51, 51, 0.5);
+    	font-family: lumos;
+    	font-size: 1.2rem;
+    	color: $lightred;
+    	text-shadow: 1px 1px 1px rgba(136, 136, 136, 0.5);
+    }
+
+	.textOutput {
+		opacity: 0;
+		margin: 30px 0;
+		font-size: 1.2rem;
+		// text-align: center;
+		// -webkit-transition: opacity 2s ease-in;
+		// -moz-transition: opacity 2s ease-in;
+		// -o-transition: opacity 2s ease-in;
+		// -ms-transition: opacity 2s ease-in;
+		transition: opacity 2s ease-in;
+	}
+
+	.textOutput.load {
+		opacity: 1;
+	}
+}
