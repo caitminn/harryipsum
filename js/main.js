@@ -4,12 +4,55 @@
 // Store the user's selection in a variable
 // Display the paragraph
 
-var potterWordList = ["Harry Potter", "Ron Weasley", "Hermione Granger", "Lord Voldemort", "Albus Dumbledore", "Severus Snape", "Rubeus Hagrid", "Draco Malfoy", "Luna Lovegood", "Neville Longbottom", "muggle", "wizard", "accio", "aguamenti", "alohomora", "aparecium", "ascendio", "avada kedavra", "bombarda", "colloportus", "crucio", "depulso", "descendo", "diffindo", "dissendium", "engorgio", "episkey", "erecto", "expecto patronum", "expelliarmus", "fiendfyre", "finite incantatem", "geminio", "homenum revelio", "immobulus", "impedimenta", "imperio", "impervius", "incendio", "langlock", "legilimens", "levicorpus", "locomotor", "lumos", "morsmordre", "muffliato", "nox", "obliviate", "obscuro", "periculum", "peskipiksi pesternomi", "petrificus totalus", "prior incantato", "protego", "quietus", "reducio", "reducto", "relashio", "rennervate", "reparo", "repello muggletum", "rictusempra", "riddikulus", "salvio hexia", "sectumsempra", "silencio", "sonorus", "stupefy", "tarantallegra", "vera verto", "wingardium leviosa"];
-
 var potterApp = {};
+var potterWordList = {};
 
 potterApp.init = function () {
+	potterApp.getData();
+	potterApp.reset();
 	potterApp.generateLorem();
+	potterApp.copyButton();
+};
+
+potterApp.getData = function () {
+	$.getJSON("js/potter.json", function (data) {
+		potterWordList = data.results;
+	});
+};
+
+potterApp.findSize = function () {
+	// media query event handler
+	if (matchMedia) {
+		var mq = window.matchMedia("(min-width: 940px)");
+		mq.addListener(WidthChange);
+		WidthChange(mq);
+		$(window).on("resize", function () {
+			console.log(mq);
+			WidthChange(mq);
+		});
+	}
+
+	// media query change
+	function WidthChange(mq) {
+		if (mq.matches) {
+			// window width is at least 940px
+			//If body does NOT have this class add the scroll
+			!$(".clickable").hasClass("hvr-wobble-horizontal");
+		} else {
+			// window width is less than 940px
+			$(".clickable").removeClass("hvr-wobble-horizontal");
+			$(window).off('scroll');
+		}
+	}
+};
+
+potterApp.reset = function () {
+	$('.clickable').click(function () {
+		$('.selected').removeClass('selected');
+		$(this).addClass('selected');
+		$('.textOutput').empty();
+		$('.textOutput').removeClass('load');
+	});
 };
 
 potterApp.generateLorem = function () {
@@ -45,9 +88,35 @@ potterApp.generateLorem = function () {
 				console.log(potterLorem);
 
 				$(".textOutput").addClass("load");
-				$(".textOutput").prepend("You're a wizard Harry! " + potterSpace);
+				$(".textOutput").prepend("You're a wizard Harry " + potterSpace + " I solemnly swear that I am up to no good.");
+
+				var copyButton = $('<button>').text('COPY ME').attr('class', 'copyButton').attr('data-clipboard-target', '.textOutput');
+				$('.copyContainer').append(copyButton);
 			};
 	});
+};
+
+potterApp.copyButton = function () {
+	var clipboard = new Clipboard('.copyButton');
+	// create a new instance of Clipboard plugin for the button element
+	// using the class selector: .buttonClass
+
+	// when text is copied into clipboard use it
+	clipboard.on('success', function (e) {
+		console.info('Action:', e.action);
+		console.info('Text:', e.text);
+		console.info('Trigger:', e.trigger);
+		$('.log').text('Copied!');
+		$('.copyButton').attr('title', 'Copied');
+		e.clearSelection();
+	});
+
+	clipboard.on('error', function (e) {
+		console.error('Action:', e.action);
+		console.error('Trigger:', e.trigger);
+	});
+
+	$('.copyButton').attr('title', 'Copied');
 };
 
 $(function () {

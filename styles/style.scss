@@ -6,54 +6,59 @@
 
 
 // DEFAULT STYLING //
-
 img {
 	max-width: 100%;
 }
 
 body {
+	/* Old browsers */
+	background: rgb(174,0,1); 
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	background: radial-gradient(ellipse at center, rgba(174,0,1,1) 0%,rgba(116,0,1,1) 100%); 
 	color: #fff;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 	font-family: 'Josefin Sans', sans-serif;
 	font-weight: 300;
 	font-size: 1.4rem;
 }
 
+p {
+	font-size: 1.4rem;
+	text-align: center;
+}
+
 .wrapper {
-	max-width: 1200px;
-	width: 80%;
+	max-width: 375px;
 	margin: 0 auto;
 }
 
 // MAIN SECTION //
-header {
-	height: 100vh;
-	// background: rgb(174,0,1); /* Old browsers */
-	background: radial-gradient(ellipse at center, rgba(174,0,1,1) 0%,rgba(116,0,1,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-}
-
 .main {
-	height: 100vh;
-	background: url("../img/harrypotter.png") top center no-repeat;
-	.title {
-	    height: 40vh;
-	    padding: 80px;
-		display: flex;
-	    flex-direction: column;
-	    justify-content: space-between;
-		h1 {
-			font-family: lumos;
-			font-size: 4rem;
-		    text-align: center;
-	        text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.5);
-		}
-		p {
-			text-align: center;
+	.selectionItems {
+		background: url("../img/harrypotter.png") center top no-repeat;
+		background-size: contain;
+		.title {
+		    margin-top: 20px;
+		    padding: 60px 0;
+			display: flex;
+		    flex-direction: column;
+		    justify-content: space-between;
+			h1 {
+				font-family: lumos;
+				font-size: 4rem;
+			    text-align: center;
+		        text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.5);
+			}
+			p {
+				text-align: center;
+			}
 		}
 	}
 
 	.loremForm {
-		height: 25vh;
-		margin: 0 15%;
+		margin: 20px 0;
+		padding-top: 40px;
 		display: flex;
 	    flex-direction: column;
 		align-items: center;
@@ -61,12 +66,12 @@ header {
 	}
 
 	.inputContainer {
+		width: 100%;
+		margin: 20px 0;
 		display: flex;
-	    justify-content: center;
+	    justify-content: space-between;
 		.clickable {
 		    width: 100px;
-	        height: 43px;
-		    margin: 10px;
 			padding: 10px;
 			/* Old browsers */
 			background: rgb(238,186,48); 
@@ -81,27 +86,27 @@ header {
 			&:hover {
 				cursor: pointer;
 			}	
-			&:focus {
-				border: 5px solid black;
-			}
 		}
-		// .selected {
-		// 	border: 3px solid black;
-		// }	
+
+		.selected {
+			color: $lightred;
+		}	
 	}
 
 	.buttonContainer {
+	    width: 100%;
+        margin-bottom: 5px;
 		display: flex;
 	    justify-content: center;
 	}
 
     .generate, .copyButton {
-	    height: 43px;
-    	margin: 10px;
+    	width: 100%;
+    	margin: 10px 0;
     	padding: 10px;
     	border: none;
     	background: white;
-    	border-radius: 10px;
+    	border-radius: 5px;
     	box-shadow: 1px 1px 1px rgba(51, 51, 51, 0.5);
     	font-family: lumos;
     	font-size: 1.2rem;
@@ -109,19 +114,98 @@ header {
     	text-shadow: 1px 1px 1px rgba(136, 136, 136, 0.5);
     }
 
+
 	.textOutput {
 		opacity: 0;
 		margin: 30px 0;
+		padding: 25px;
+		background: rgba(116, 0, 1, 0.6);
+		border: 3px solid $yellow;
 		font-size: 1.2rem;
+		line-height: 1.4rem;
+		text-align: justify;
 		// text-align: center;
 		// -webkit-transition: opacity 2s ease-in;
 		// -moz-transition: opacity 2s ease-in;
 		// -o-transition: opacity 2s ease-in;
 		// -ms-transition: opacity 2s ease-in;
-		transition: opacity 2s ease-in;
+		// transition: opacity 2s ease-in;
 	}
-
 	.textOutput.load {
 		opacity: 1;
+		transition: opacity 0.5s ease-in;
 	}
 }
+
+footer p {
+	margin: 10px 0;
+	font-size: 1.2rem;
+	text-align: center;
+	a {
+		color: white;
+		text-decoration: none;
+		&:hover {
+			color: $yellow;
+		}
+	}
+}
+
+/* Portrait tablet and small desktops */
+	@media (max-width: 940px) {
+		.main .selectionItems {
+			.title h1 {
+				font-size: 3rem;
+			}
+		 	.title p {
+				font-size: 1.2rem;
+			}
+			.loremForm p {
+				font-size: 1.2rem;
+			}
+		}
+
+		.main .inputContainer .clickable {
+		    width: 85px;
+		    font-size: 1rem;
+		}
+		.main .generate, .main .copyButton {
+		    font-size: 1rem;
+		}
+		.main footer p {
+			font-size: 1rem;
+		}
+	}
+
+	/* Landscape phone to portrait tablet */
+	@media (max-width: 768px) {
+	}
+
+	/* Landscape phones and down */
+	@media (max-width: 480px) {
+		.wrapper {
+		    max-width: 290px;
+		    margin: 0 auto;
+		}
+		.main .selectionItems {
+			.title h1 {
+				font-size: 3rem;
+			}
+			.title p {
+				font-size: 1rem;
+			}
+			.loremForm p {
+				font-size: 1rem;
+			}
+		}
+
+		.main .inputContainer .clickable {
+		    width: 85px;
+		    font-size: 1rem;
+		}
+		.main .generate, .main .copyButton {
+		    font-size: 1rem;
+		}
+		.main footer p {
+			font-size: 0.8rem;
+		}
+	}

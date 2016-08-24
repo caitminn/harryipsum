@@ -3,45 +3,73 @@
 <head>
 	<meta charset="UTF-8">
 	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,100,300' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="http://s.mlcdn.co/animate.css">
-	<link rel="stylesheet" href="../styles/style.css">
-	<title>Document</title>
+	<link rel="stylesheet" href="styles/style.css">
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="img/favicomatic/apple-touch-icon-57x57.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/favicomatic/apple-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/favicomatic/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/favicomatic/apple-touch-icon-144x144.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="img/favicomatic/apple-touch-icon-60x60.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="img/favicomatic/apple-touch-icon-120x120.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="img/favicomatic/apple-touch-icon-76x76.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="img/favicomatic/apple-touch-icon-152x152.png" />
+	<link rel="icon" type="image/png" href="img/favicomatic/favicon-196x196.png" sizes="196x196" />
+	<link rel="icon" type="image/png" href="img/favicomatic/favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/png" href="img/favicomatic/favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="img/favicomatic/favicon-16x16.png" sizes="16x16" />
+	<link rel="icon" type="image/png" href="img/favicomatic/favicon-128.png" sizes="128x128" />
+	<meta name="application-name" content="&nbsp;"/>
+	<meta name="msapplication-TileColor" content="#FFFFFF" />
+	<meta name="msapplication-TileImage" content="mstile-144x144.png" />
+	<meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
+	<meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
+	<meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
+	<meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ACCIO IPSUM</title>
 </head>
 <body>
 	<header>
-		<section class="main wrapper">
-			<div class="title">
-				<h1>Accio Ipsum</h1>
-				<p>The most magical placeholder text.</p>
-			</div>
+		<section class="main">
+			<section class="wrapper">	
+				<section class="selectionItems">
+					<div class="title">
+						<h1>Accio Ipsum</h1>
+						<p>The most magical placeholder text.</p>
+					</div>
 
-			<form action="" class="loremForm" id="generateLorem">
-				<p>Choose a length for your placeholder text:</p>
-				<div class="inputContainer">
-					<label for="short" class="clickable hvr-wobble-horizontal">Short</label>
-					<input type="radio" name="sizeChoice" id="short" value="10" hidden="" class="clickable">
-					<label for="medium" class="clickable hvr-wobble-horizontal">Medium</label>
-					<input type="radio" name="sizeChoice" id="medium" value="20" hidden="" class="clickable">
-					<label for="long" class="clickable hvr-wobble-horizontal">Long</label>
-					<input type="radio" name="sizeChoice" id="long" value="30" hidden="" class="clickable">	
+					<form action="" class="loremForm" id="generateLorem">
+						<p>Choose a length for your placeholder text:</p>
+						<div class="inputContainer">
+							<label for="short" class="clickable hvr-wobble-horizontal">Short</label>
+							<input type="radio" name="sizeChoice" id="short" value="25" hidden="" class="">
+							<label for="medium" class="clickable hvr-wobble-horizontal">Medium</label>
+							<input type="radio" name="sizeChoice" id="medium" value="50" hidden="" class="">
+							<label for="long" class="clickable hvr-wobble-horizontal">Long</label>
+							<input type="radio" name="sizeChoice" id="long" value="75" hidden="" class="">	
+						</div>
+
+						<div class="buttonContainer">
+							<input type="submit" value="Accio Ipsum!" id="generateLorem" class="generate hvr-buzz-out">
+						</div>	
+					</form>
+				</section>
+				<div class="textOutput">
+					
 				</div>
-
-				<div class="buttonContainer">
-					<input type="submit" value="Accio Ipsum!" id="generateLorem" class="generate hvr-buzz-out">
-				</div>	
-			</form>
-			<div class="textOutput" id="bar">
+				<div class="copyContainer">
 				
-			</div>
-			<div class="buttonContainer">
-				<button class="copyButton hvr-pulse-grow" data-clipboard-action="copy" data-clipboard-target="#bar">Copy</button>
-			</div>
-		</section>
+				</div>
+				<p class="log"></p>
+				<footer>
+					<p>Designed & Developed by <a href="itscaitlinlucy.com">Caitlin MacMinn</a> | 2016</p>
+				</footer>
+			</section> <!-- /.wrapper -->
+		</section> <!-- /.main -->
 	</header>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<!-- <script src="js/potter.json"></script> -->
-	<!-- <script src="js/clipboard.min.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
 	<script src="js/main.js"></script>
 </body>
 </html>
